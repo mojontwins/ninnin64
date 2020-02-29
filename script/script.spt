@@ -1,0 +1,24 @@
+; Script supersencillo para cheril perils
+; Lo que hace es que al entrar en la pantalla 20 comprueba
+; si todos los enemigos se han morido. En ese caso,
+; quita la barrera de la salida.
+; Lo comprueba también al matar a un enemigo (PRESS_FIRE)
+; por si acaso matamos al último en la pantalla de marras.
+
+ENTERING SCREEN 20
+    IF ALL_ENEMIES_DEAD			; El jugador mató a tol mundo
+    THEN                        ; Si se cumple todo lo de arriba...
+    SET TILE (2, 8) = 0			; Eliminar bolondrio
+    SET TILE (2, 9) = 0			; Eliminar bolondrio
+    END                         ; Fin de las acciones
+END
+
+PRESS_FIRE AT SCREEN 20
+	IF ALL_ENEMIES_DEAD			; El jugador mató a tol mundo
+    THEN                        ; Si se cumple todo lo de arriba...
+    SET TILE (2, 8) = 0			; Eliminar bolondrio
+    SET TILE (2, 9) = 0			; Eliminar bolondrio
+    END                         ; Fin de las acciones
+END
+
+;; ADAPTADO PARA NES

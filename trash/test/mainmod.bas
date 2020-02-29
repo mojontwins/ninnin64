@@ -1,0 +1,4 @@
+#include "submod.basm"
+
+callme
+
