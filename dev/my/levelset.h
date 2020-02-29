@@ -1,12 +1,26 @@
 // MTE MK1_NES / AGNES 0.1 R
 // Copyleft Mojon Twins 2013, 2019
 
-#ifdef MAP_FORMAT_RLE44
-	const unsigned char * const * const l_map [] = 
+#ifdef MAP_IN_CHR_ROM
+	const unsigned char l_map_chr_rom_bank [] = {
+		MAP_00_CHRROM, MAP_01_CHRROM, MAP_04_CHRROM, MAP_03_CHRROM,
+		MAP_02_CHRROM, MAP_05_CHRROM, MAP_06_CHRROM, MAP_07_CHRROM,
+		MAP_08_CHRROM, MAP_09_CHRROM, MAP_0A_CHRROM, MAP_0B_CHRROM
+	};
+
+	const unsigned int * const l_map [] = {
+		map_00_scr_offsets, map_01_scr_offsets, map_04_scr_offsets, map_03_scr_offsets,
+		map_02_scr_offsets, map_05_scr_offsets, map_06_scr_offsets, map_07_scr_offsets,
+		map_08_scr_offsets, map_09_scr_offsets, map_0A_scr_offsets, map_0B_scr_offsets,
+	};
 #else
-	const unsigned char * const l_map [] = 
+	#ifdef MAP_FORMAT_RLE44
+		const unsigned char * const * const l_map [] = 
+	#else
+		const unsigned char * const l_map [] = 
+	#endif
+		{ map_0, map_1, map_4, map_3, map_2, map_5, map_6, map_7, map_8, map_9, map_A };
 #endif
-	{ map_0, map_1, map_4, map_3, map_2, map_5, map_6, map_7, map_8, map_9, map_A };
 
 const unsigned char l_map_size [] = {
 	MAP_0_MAP_SIZE, MAP_1_MAP_SIZE, MAP_4_MAP_SIZE, MAP_3_MAP_SIZE, MAP_2_MAP_SIZE, MAP_5_MAP_SIZE, MAP_6_MAP_SIZE, MAP_7_MAP_SIZE, MAP_8_MAP_SIZE, MAP_9_MAP_SIZE, MAP_A_MAP_SIZE

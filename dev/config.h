@@ -192,6 +192,7 @@
 #define MAPPED_TILESETS                 // Ifdef tileset is mapped
 #define MAP_FORMAT_RLE44                // Use RLE44, undef for good ol'PACKED
 #define MAP_CUSTOM_RENDERER             // Add code to calculate _t yourself!
+#define MAP_IN_CHR_ROM                  // Map will be read from CHR-ROM
 
 // ============================================================================
 // IV. Player movement configuration

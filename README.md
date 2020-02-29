@@ -115,7 +115,7 @@ In `my/hooks.h` you have a collection of functions you can populate with your C 
 
 ## Mapped graphics
 
-AGNES features tile-mapped metatiles: each metatile is defined by 5 bytes: 4 pattern values and 1 palette value. In AGNES 0.1 metatile N was rendered using patterns 64+N*4 and the three following. Quite limited, but also quite compact, as you don't need to store metatile maps, just the palette value. So your metatileset just takes 48 bytes of ROM space.
+AGNES features tile-mapped metatiles: each metatile is defined by 5 bytes: 4 pattern values and 1 palette value. In AGNES 0.1 metatile N was rendered using patterns `64+N*4` and the three following. Quite limited, but also quite compact, as you don't need to store metatile maps, just the palette value. So your metatileset just takes 48 bytes of ROM space.
 
 The palette values for each metatile are stored in `assets/palettes.h` and are written there by `tileset_import_generator.exe`, which gets stuff from the `fiddle/` folder and generates data and `tileset_import.png`, the files needed by good ol' AGNES 0.1 - just check `prepare_fiddle.bat`.
 
@@ -124,6 +124,12 @@ Sprites are quite simmilar. You have just 64 16x16 sprite faces, but again, only
 So mapped what? Well- you have 48 metatiles and 64 sprite cells, but levels only allow for 16 metatiles and 8 sprite cells (for enemies). The mapping is just selecting which 16 metatiles and which 8 sprite cells are in each level. Define your arrays at `my/tsmap.h` and `my/enems_ssmap.h` and populate the `l_tsmap` and `l_enems_ssmap` arrays at `my/levelset.h`.
 
 ## Stuff about map data
+
+### `MAP_IN_CHR_ROM`
+
+If enabled, maps are to be stored in CHR-ROM. This means some AGNES-1.0 type stuff must be performed to make the map binaries into CHR-ROM rather than PRG-ROM, and that which CHR-ROM page and the offset of each map should be provided, for each level.
+
+First of all, `rle44mapchrrom.exe` should be used instead of `rle44mapMK1.exe`. A list of maps should be provided, usually `/map/maplist.txt`. 
 
 ### Silly springs
 

@@ -1,0 +1,12 @@
+level0.map,10,2,15,prefix=MAP_00,nodecos
+level1.map,8,3,15,prefix=MAP_01,nodecos
+level2.map,8,3,15,prefix=MAP_02,nodecos
+level3.map,8,3,15,prefix=MAP_03,nodecos
+level4.map,12,1,99,prefix=MAP_04,nodecos
+level5.map,12,1,99,prefix=MAP_05,nodecos
+level6.map,4,4,15,prefix=MAP_06,nodecos
+level7.map,4,6,15,prefix=MAP_07,nodecos
+level8.map,10,2,99,prefix=MAP_08,nodecos
+level9.map,1,10,99,prefix=MAP_09,fixmappy,nodecos
+levelA.map,2,10,99,prefix=MAP_0A,fixmappy,nodecos
+levelB.map,2,12,99,prefix=MAP_0B,fixmappy,genempty,nodecos
