@@ -43,11 +43,12 @@
 #define IF_COLLIDE_IN(x1,y1,x2,y2)  _x1=(x1);_y1=(y1);_x2=(x2);_y2=(y2);if (collide_in())
 #define VRAM_PUT(n)				{__asm__ ("lda %v", n); __asm__ ("sta $2007");}
 #define VRAM_PUTN(n)			{__asm__ ("lda #%b", n); __asm__ ("sta $2007");}
+#define VRAM_READ				(*((unsigned char *) (0x2007)))
 
-#define M_TITLE                 1
-#define M_GOVER                 1
+#define M_TITLE                 0
+#define M_GOVER                 8
 #define M_FIXED 				1
-#define M_INGAME                0
+#define M_ENDING                9
 
 // SFX
 

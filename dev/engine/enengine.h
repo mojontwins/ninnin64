@@ -259,7 +259,7 @@ void enems_load (void) {
 						en_alive [gpit] = 0;
 						en_ct [gpit] = DEATH_COUNT_EXPRESSION;
 					#else
-						_en_mx = rdd;	// Raw speed
+						_en_mx = rdd & 0xf;	// Raw speed
 					#endif
 					break;
 			#endif
@@ -571,6 +571,7 @@ void enems_move (void) {
 					#endif				
 					{
 						touched = phit = 1;
+						en_life [gpit] = 1; enem_hit ();
 					}
 				}
 			}

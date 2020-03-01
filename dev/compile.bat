@@ -2,7 +2,7 @@
 echo Exporting chr
 cd ..\gfx
 ..\utils\nescnv tileset-import.png
-copy tileset.chr ..\dev
+copy tileset.chr ..\dev\tileset0.chr
 del tileset.chr
 echo Copying enems
 cd ..\enems
@@ -17,14 +17,20 @@ cd ..\enems
 ..\utils\eneexp3c level8.ene ..\dev\assets\enems8.h 8 0 gencounter
 ..\utils\eneexp3c level9.ene ..\dev\assets\enems9.h 9 0 gencounter
 ..\utils\eneexp3c levelA.ene ..\dev\assets\enemsA.h A 0 gencounter
+..\utils\eneexp3c levelB.ene ..\dev\assets\enemsB.h B 0 gencounter
 echo Making map
 cd ..\map
 ..\utils\rle44mapchrrom.exe in=maplist.txt bin=..\dev\work\mapchr.bin out=..\dev\assets\chr_rom_maps.h chr=2
 cd ..\dev
 ..\utils\cmpfixed2 ..\map\fixed.map ..\map\pallist.txt assets\screens.h 2
+
+..\utils\fillto.exe tileset1.chr 8192
+copy work\mapchr.bin.2 tileset2.chr 
+..\utils\fillto.exe tileset3.chr 8192
+
 del game.s
 ..\cc\cc65 -Oi game.c --add-source
-..\cc\ca65 crt0.s
+..\cc\ca65 crt0.s -D CNROM=1
 ..\cc\ca65 game.s
-..\cc\ld65 -v -C nes.cfg -o cart.nes crt0.o game.o runtime.lib -m labels.txt -vm
+..\cc\ld65 -v -C nes-CNROM.cfg -o cart.nes crt0.o game.o runtime.lib -m labels.txt -vm
 del *.o

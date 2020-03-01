@@ -10,8 +10,8 @@
 
 rdb = rand8 ();
 
-// In level 9, paint rocks at the edges.
-if (level == 9) {
+// In level 6, paint rocks at the edges.
+if (level == 6) {
 	rda = rdm & 0xf; if (rda == 0 || rda == 0xf || (rda == 0xd && n_pant && n_pant < 9)) _t = 22;
 }
 

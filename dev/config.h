@@ -15,7 +15,7 @@
 #define PLAYER_DONT_LIMIT_LIFE          // Don't limit max life to PLAYER_LIFE
 #define PLAYER_REFILL           1       // amount of life refill with hs type 3
 #define HOTSPOTS_TILE_BASE      42      // tile # with gfx for the "obj" - 1
-#define MAX_LEVELS              11      // (new) Max # of levels
+#define MAX_LEVELS              12      // (new) Max # of levels
 #define ONLY_ONE_MAIN                   // Only one character main sprite.
 
 // ============================================================================
@@ -193,6 +193,7 @@
 #define MAP_FORMAT_RLE44                // Use RLE44, undef for good ol'PACKED
 #define MAP_CUSTOM_RENDERER             // Add code to calculate _t yourself!
 #define MAP_IN_CHR_ROM                  // Map will be read from CHR-ROM
+#define DEFAULT_CHR_ROM         0       // Where default game graphics are
 
 // ============================================================================
 // IV. Player movement configuration

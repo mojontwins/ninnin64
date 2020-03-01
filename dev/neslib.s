@@ -21,7 +21,8 @@
 	.export _set_vram_update,_vram_adr,_vram_fill
 	.export _memcpy,_memfill,_delay
 	.export _init_vram_update
-
+	.export _bankswitch
+	
 
 ;NMI handler
 
@@ -932,7 +933,15 @@ _delay:
 	bne @1
 	rts
 
-	
+; void __fastcall__ bankswitch(unsigned char bank);
+
+_bankswitch:
+	tax
+	sta bankList, x
+	rts
+
+bankList:
+	.byte $00, $01, $02, $03	
 	
 palBrightTableL:
 	.byte <palBrightTable0,<palBrightTable1,<palBrightTable2

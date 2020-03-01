@@ -38,11 +38,12 @@ const unsigned char level_names [] =
 	"DE NADAL 1\x00"
 	"CUEVA CAVE\x00"
 	"NOSHE WOOD\x00"
-	"DE NADAL 2\x00"
-	"EL CASTLER\x00"
-	"MARSHY GOO\x00"
 	"LAVA PIT!!\x00"
-	"HELL PIT!!\x00";
+	"DE NADAL 2\x00"
+	"MARSHY GOO\x00"
+	"HELL PIT!!\x00"
+	"ICY DUSTER\x00"
+	"EL CASTLER\x00";
 
 // Smart gadget to make the lava level
 // lava_top is 32 bytes to be copied to an update sequence.

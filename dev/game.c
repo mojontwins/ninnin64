@@ -28,6 +28,7 @@
 #include "assets/enems8.h"
 #include "assets/enems9.h"
 #include "assets/enemsA.h"
+#include "assets/enemsB.h"
 #include "assets/screens.h"
 #ifdef MAPPED_TILESETS
 	#include "my/tsmap.h"
@@ -205,7 +206,7 @@ void game_loop (void) {
 	olife = oammo = oobjs = okeys = 0x99;
 	pneedsreset = 0;
 
-	music_play (M_INGAME);
+	music_play (l_music [level]);
 	set_vram_update (update_list);
 	update_list [0] = 0xff;
 	ppu_on_all ();
@@ -404,7 +405,7 @@ void main(void) {
 		title ();
 		kids_mode = (pad_this_frame & PAD_SELECT);
 
-		level = 9;
+		level = 0;
 		plife = kids_mode ? 10 : 5;
 		
 		#ifdef ACTIVATE_HOOKS

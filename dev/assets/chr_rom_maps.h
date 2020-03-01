@@ -333,33 +333,33 @@ const unsigned int map_0a_scr_offsets [] = {
 
 // Total screens size in bytes is 678
 
-// Map # 11 read from levelB.map (2x12)
+// Map # 11 read from levelB.map (12x2)
 
 // Definitions
 
 #define MAP_0B_CHRROM    2
 #define MAP_0B_BASE      0x19F0
-#define MAP_0B_W         2
-#define MAP_0B_H         12
+#define MAP_0B_W         12
+#define MAP_0B_H         2
 #define MAP_0B_MAXPANTS  24
 #define MAP_0B_N_LOCKS   0
 
 // Screens index
 
 const unsigned int map_0b_scr_offsets [] = {
-	MAP_0B_BASE + 0x0000, MAP_0B_BASE + 0x0012, 
-	MAP_0B_BASE + 0x0028, MAP_0B_BASE + 0x0041, 
-	MAP_0B_BASE + 0x0056, MAP_0B_BASE + 0x006A, 
-	MAP_0B_BASE + 0x0081, MAP_0B_BASE + 0x0096, 
-	MAP_0B_BASE + 0x00A8, MAP_0B_BASE + 0x00B8, 
-	MAP_0B_BASE + 0x00CA, MAP_0B_BASE + 0x00E6, 
-	MAP_0B_BASE + 0x00F6, MAP_0B_BASE + 0x011D, 
-	MAP_0B_BASE + 0x0146, MAP_0B_BASE + 0x0164, 
-	MAP_0B_BASE + 0x0182, MAP_0B_BASE + 0x01A0, 
-	MAP_0B_BASE + 0x01BF, MAP_0B_BASE + 0x01EB, 
-	MAP_0B_BASE + 0x0224, MAP_0B_BASE + 0x0243, 
-	MAP_0B_BASE + 0x0265, MAP_0B_BASE + 0x0283
+	MAP_0B_BASE + 0x0000, MAP_0B_BASE + 0x0030, 
+	MAP_0B_BASE + 0x0066, MAP_0B_BASE + 0x0066, 
+	MAP_0B_BASE + 0x0066, MAP_0B_BASE + 0x0066, 
+	MAP_0B_BASE + 0x0072, MAP_0B_BASE + 0x00AB, 
+	MAP_0B_BASE + 0x00CF, MAP_0B_BASE + 0x00EB, 
+	MAP_0B_BASE + 0x00FC, MAP_0B_BASE + 0x0066, 
+	MAP_0B_BASE + 0x010A, MAP_0B_BASE + 0x0130, 
+	MAP_0B_BASE + 0x014D, MAP_0B_BASE + 0x016B, 
+	MAP_0B_BASE + 0x016B, MAP_0B_BASE + 0x01A5, 
+	MAP_0B_BASE + 0x01E1, MAP_0B_BASE + 0x0210, 
+	MAP_0B_BASE + 0x0233, MAP_0B_BASE + 0x0258, 
+	MAP_0B_BASE + 0x027C, MAP_0B_BASE + 0x029B
 };
 
-// Total screens size in bytes is 674
+// Total screens size in bytes is 733
 

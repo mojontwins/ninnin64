@@ -1,0 +1,26 @@
+Each line can be a maximum of approximately 28 characters.
+These parameters will be used when entering information onto
+the compilation cartridge and for the description on the 
+NESDevcompo website.
+
+Title: 1 line
+
+Author/Publisher: 3/4 line
+
+Year: 4 digits
+
+Players: options include but are not exclusive to;
+ 1, 1-2, 1-2 alt, 1-3, 1-4, 2, 2-4, 2-4 alt, 2-6 alt
+ 
+Description: Up to 16 lines of text. It should describe the 
+game's premise, the control scheme on the standard controller, 
+any other specialized controllers (such as the Zapper or Power 
+Pad) that this activity uses, and (if you have room) some game tips.
+
+URL: No limit. This is optional, but recommended.  This link should point to a website
+or forum post with any additional information regarding this game.  This
+includes comprehensive manuals, boxart, source code, etc.  The rom posted on 
+the NESDevcompo website will not be modified from it's original submission, so
+any newer builds or bugfixes should be located at this location.
+
+Credits: No limit.

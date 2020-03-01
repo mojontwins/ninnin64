@@ -32,16 +32,16 @@ void entering_level (void) {
 	f1 = 0;
 
 	// Lava
-	lava_height = (level == 9 ? 240 : 255);
+	lava_height = (level == 6 ? 240 : 255);
 	lava_height_pixels = 240 << 3;
-	lava_delay = (level == 9 ? 30 : 40);
+	lava_delay = (level == 6 ? 30 : 40);
 
-	if (level == 10) lava_launch ();
+	if (level == 9) lava_launch ();
 }
 
 void flick_screen (void) {
 	// Right after flick screen DETECTION.
-	rdb = (level == 10) ? (n_pant >> 1) : n_pant;
+	rdb = (level == 9) ? (n_pant >> 1) : n_pant;
 	scrpixoffset = (rdb << 7) + (rdb << 6);
 }
 
@@ -59,8 +59,8 @@ void exiting_screen (void) {
 	ray_tiles = face_tiles = face_count = 0;
 
 	rda = 0;
-	if (level == 3 || level == 6) {
-		// Levels 3 & 6 have normal & underwater sections
+	if (level == 3 || level == 7) {
+		// Levels 3 & 7 have normal & underwater sections
 
 		if (level == 3) {
 			if (n_pant == 7) {
@@ -94,7 +94,7 @@ void exiting_screen (void) {
 			pal_bg (mypal_game_bg3);
 			c_alt_bg = 42;
 		}
-	} else if (level == 7) {
+	} else if (level == 11) {
 		// Level 7 has indoors & outdoors screens
 		c_alt_bg = ((n_pant & 1) == 0 && n_pant < 16) ? 34 : 0;
 	} else if (level == 8) {
@@ -164,7 +164,7 @@ void entering_screen (void) {
 	// Per level
 
 	switch (level) {
-		case 7:	
+		case 11:	
 			switch (n_pant) {
 				case 1:
 				case 3:
@@ -191,14 +191,14 @@ void entering_screen (void) {
 					break;
 			}
 			break;
-		case 9:
+		case 6:
 			if (n_pant == 0 && f1) {
 				_x = 7; _y = 5; _t = 0; draw_tile ();
 				_x = 8; _y = 5; _t = 0; draw_tile ();
 			}
 
 			// Correct! No break here:
-		case 10:
+		case 9:
 
 			// Lava precalculations & pre-render			
 			lava_calc ();
@@ -219,7 +219,7 @@ void press_fire_at_screen (void) {
 	if (firezoned) {
 		// Fire zones
 
-		if (level == 7) {
+		if (level == 11) {
 			switch (n_pant) {
 				case 17:
 					sfx_play (SFX_BREAKH, 0);
@@ -235,7 +235,7 @@ void press_fire_at_screen (void) {
 		// Exceptions
 
 		switch (level) {
-			case 7:
+			case 11:
 				switch (n_pant) {
 					case 18:
 						if (PLAYER_TOUCHES (8, 2) && f0 == 0) {
@@ -256,7 +256,7 @@ void press_fire_at_screen (void) {
 						}
 				}
 				break;
-			case 9:
+			case 6:
 				if (n_pant == 9) {
 					if (PLAYER_TOUCHES (3, 9) && f1 == 0) {
 						lava_launch ();
@@ -304,7 +304,7 @@ void press_fire_at_screen (void) {
 		-- ray_tiles;
 		if (ray_tiles == 0) {
 			sfx_play (SFX_FANFARE, 0);
-			if (level == 7 && n_pant == 20) {
+			if (level == 11 && n_pant == 20) {
 				_t = 16; _y = 5; _x = 9; map_set ();
 				_t = 16; _y = 2; _x = 6; map_set ();
 			} else {
@@ -401,7 +401,7 @@ void custom_hud (void) {
 #ifdef ENEMS_CAN_DIE
 	#ifndef FIRE_ON_KILL
 		void on_enem_killed (void) {	
-			if (level == 7 && n_pant < 4) {
+			if (level == 11 && n_pant < 4) {
 				// Auto open door when all fanties killed
 				++ f0; 
 				if (f0 == 3) {

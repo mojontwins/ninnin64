@@ -9,4 +9,4 @@ level7.map,4,6,15,prefix=MAP_07,nodecos
 level8.map,10,2,99,prefix=MAP_08,nodecos
 level9.map,1,10,99,prefix=MAP_09,fixmappy,nodecos
 levelA.map,2,10,99,prefix=MAP_0A,fixmappy,nodecos
-levelB.map,2,12,99,prefix=MAP_0B,fixmappy,genempty,nodecos
+levelB.map,12,2,99,prefix=MAP_0B,genempty,nodecos

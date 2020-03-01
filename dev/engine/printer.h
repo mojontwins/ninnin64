@@ -273,17 +273,27 @@ void draw_scr (void) {
 	_x = 0; _y = TOP_ADJUST;
 
 	#ifdef MAP_FORMAT_RLE44
-		gp_map = c_map [n_pant];
+		#ifdef MAP_IN_CHR_ROM
+			bankswitch (c_map_chr_rom_bank);
+			vram_adr (c_map [n_pant]);
+			rda = VRAM_READ; 	// Dummy read.
+		#else
+			gp_map = c_map [n_pant];
+		#endif
 
 		rdm = 0; while (rdm < 192) {
 			
-			//rda = *gp_map; ++ gp_map;
+			#ifdef MAP_IN_CHR_ROM
+				rda = VRAM_READ;
+			#else
+				//rda = *gp_map; ++ gp_map;
 				__asm__ ("ldy #0");
 				__asm__ ("lda (%v), y", gp_map);
 				__asm__ ("inc %v", gp_map);
 				__asm__ ("bne %g", ds_incd);
 				__asm__ ("inc %v+1", gp_map);
 			ds_incd:
+			#endif
 
 			// rdct = rda;
 			// rdt = rda & 0x0f;
@@ -309,6 +319,8 @@ void draw_scr (void) {
 			add_tile ();
 		}
 	#endif
+
+	bankswitch (DEFAULT_CHR_ROM);
 
 	#ifdef MAP_CUSTOM_RENDERER
 		/*

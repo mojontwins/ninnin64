@@ -135,7 +135,7 @@ void lava_calc (void) {
 	
 	// Which screen row? 
 	
-	rdb = (level == 10 ? (n_pant >> 1) : n_pant);
+	rdb = (level == 9 ? (n_pant >> 1) : n_pant);
 
 		__asm__ ("lda %v", lava_height);
 

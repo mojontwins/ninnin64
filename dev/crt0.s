@@ -7,9 +7,15 @@
 
 ; Old neslib integrated with FT2 by na_th_an
 
+.if CNROM
+NES_MAPPER				=3	;mapper number
+NES_PRG_BANKS			=2	;number of 16K PRG banks, change to 2 for NROM256
+NES_CHR_BANKS			=4	;number of 8K CHR banks
+.else
 NES_MAPPER				=0	;mapper number
 NES_PRG_BANKS			=2	;number of 16K PRG banks, change to 2 for NROM256
 NES_CHR_BANKS			=1	;number of 8K CHR banks
+.endif
 NES_MIRRORING			=1	;0 horizontal, 1 vertical, 8 four screen
 
 FT_DPCM_OFF				=$ffc0	;samples offset, $c000 or higher, 64-byte steps
@@ -254,5 +260,12 @@ sounds_data:
 
 
 .segment "CHARS"
-
+	.if CNROM
+	.incbin "tileset0.chr"
+	.incbin "tileset1.chr"
+	.incbin "tileset2.chr"
+	.incbin "tileset3.chr"
+	.else
 	.incbin "tileset.chr"
+	.endif
+	

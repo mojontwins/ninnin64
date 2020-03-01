@@ -32,6 +32,7 @@ void title (void) {
 
 	PR_STR (10, 2, "MOJON TWINS\"");
 	PR_STR (10, 23, "START=NORMAL%SELECT=KIDS!");
+	PR_STR (29, 14, "V1");
 
 	bat_in ();
 	music_play (M_TITLE);
@@ -46,6 +47,7 @@ void fixed_screen (void) {
 		case 0x00: 
 			// New level screen:
 			PR_STR (11, 14, (unsigned char *) (level_names + ((level << 3) + (level << 1) + level)));
+			music_play (M_FIXED);
 			break;
 
 		case 0x01:
@@ -54,11 +56,15 @@ void fixed_screen (void) {
 			if (kids_mode) {
 				PR_STR (9, 15, "START=CONTINUE");
 			}
+			music_play (M_GOVER);
 			break;
 
 		case 0x02: 
 			// Game ending screen:
-			PR_STR (11, 13, "PLACEHOLDER ENDING");
+			PR_STR (7, 10, "  SORRY NINJAJAR%% BUT YER NOVIA IS%%IN ANOTHER CASTLE!%%     THE END?");
+			oam_2x2_meta_spr (32, 183, 0, 1, 0x4c);
+			oam_2x2_meta_spr (208, 183, 16, 0, 0x14);
+			music_play (M_ENDING);
 			break;
 
 		case 0x03:
@@ -70,8 +76,9 @@ void fixed_screen (void) {
 	}
 
 	bat_in ();
-	music_play (M_GOVER);
 	bat_out ();
+
+	oam_hide_rest (0);
 }
 
 /*

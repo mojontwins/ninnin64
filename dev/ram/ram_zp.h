@@ -94,12 +94,19 @@ unsigned char c_player_offset;
 unsigned char ts_offs, c_alt_bg;
 
 // Current level
-#ifdef MAP_FORMAT_RLE44
-	const unsigned char * const *c_map;	
+#ifdef MAP_IN_CHR_ROM
+    const unsigned int *c_map;
+    unsigned char c_map_chr_rom_bank;
 #else
-	const unsigned char *c_map;
+	#ifdef MAP_FORMAT_RLE44
+		const unsigned char * const *c_map;	
+	#else
+		const unsigned char *c_map;
+	#endif
 #endif
+
 const unsigned char *c_locks;
+
 #ifdef COMPACTED_ENEMS
 	const unsigned char * const *c_enems;
 #else

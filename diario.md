@@ -354,8 +354,17 @@ Orden de las fases
 0 (bosque fácil)
 1 (desierto fácil)
 4 (pantano fácil)
-3 (bosque noche)
+3 (nadal)
+
 2 (cueva)
+5 (bosque denoche)
+9 (lava 1)
+6 (nadal 2)
+
+8 (pantano chungo)
+A (lava 2)
+B (hielo)
+7 (castillo 1)
 
 ~
 

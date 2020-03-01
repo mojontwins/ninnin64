@@ -11,6 +11,10 @@ c_alt_bg = l_alt_bg [gpit];
 #ifdef ENEMS_CAN_DIE
 	c_baddies_count = l_baddies_count [gpit];
 #endif
+
+#ifdef MAP_IN_CHR_ROM
+	c_map_chr_rom_bank = l_map_chr_rom_bank [gpit];
+#endif
 */
 
 	__asm__ ("ldx %v", level);
@@ -37,6 +41,11 @@ c_alt_bg = l_alt_bg [gpit];
 #if defined (ENEMS_CAN_DIE) && defined (NEED_BADDIES_COUNT)
 	__asm__ ("lda %v, x", l_baddies_count);
 	__asm__ ("sta %v", c_baddies_count);
+#endif
+
+#if defined (MAP_IN_CHR_ROM)
+	__asm__ ("lda %v, x", l_map_chr_rom_bank);
+	__asm__ ("sta %v", c_map_chr_rom_bank);
 #endif
 
 // 16 bits
