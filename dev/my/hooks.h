@@ -193,8 +193,10 @@ void entering_screen (void) {
 			break;
 		case 6:
 			if (n_pant == 0 && f1) {
-				_x = 7; _y = 5; _t = 0; draw_tile ();
-				_x = 8; _y = 5; _t = 0; draw_tile ();
+				_x = 14; _y = 10 + TOP_ADJUST; _t = 0; draw_tile ();
+				_x = 16; _y = 10 + TOP_ADJUST; _t = 0; draw_tile ();
+				map_attr [COORDS (7, 5)] = 0;
+				map_attr [COORDS (8, 5)] = 0;
 			}
 
 			// Correct! No break here:
