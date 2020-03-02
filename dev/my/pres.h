@@ -32,7 +32,7 @@ void title (void) {
 
 	PR_STR (10, 2, "MOJON TWINS\"");
 	PR_STR (10, 23, "START=NORMAL%SELECT=KIDS!");
-	PR_STR (29, 14, "V1");
+	PR_STR (29, 14, "V2");
 
 	bat_in ();
 	music_play (M_TITLE);
