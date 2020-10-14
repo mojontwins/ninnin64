@@ -1038,34 +1038,34 @@ _map_00_scr_offsets:
 	.word	$0000
 	.word	$019A
 	.word	$01CD
-	.word	$01EB
-	.word	$0208
+	.word	$01ED
+	.word	$0209
 	.word	$0000
 	.word	$0000
 	.word	$0000
 	.word	$0000
 _map_01_scr_offsets:
-	.word	$0236
-	.word	$0263
-	.word	$0299
-	.word	$02C3
-	.word	$02EA
+	.word	$0237
+	.word	$0264
+	.word	$029A
+	.word	$02C4
+	.word	$02EB
 	.word	$0000
 	.word	$0000
 	.word	$0000
-	.word	$031A
-	.word	$034B
-	.word	$035F
-	.word	$0394
-	.word	$03A8
-	.word	$03C5
-	.word	$03E4
-	.word	$03F7
-	.word	$042D
-	.word	$034B
-	.word	$0450
-	.word	$0471
-	.word	$049B
+	.word	$031B
+	.word	$034C
+	.word	$0360
+	.word	$0395
+	.word	$03A9
+	.word	$03C6
+	.word	$03E5
+	.word	$03F8
+	.word	$042E
+	.word	$034C
+	.word	$0451
+	.word	$0472
+	.word	$049C
 	.word	$0000
 	.word	$0000
 	.word	$0000
@@ -1077,26 +1077,26 @@ _map_01_locks:
 _map_02_scr_offsets:
 	.word	$0000
 	.word	$0000
-	.word	$04C8
-	.word	$04F3
-	.word	$050F
+	.word	$04C9
+	.word	$04F4
+	.word	$0510
 	.word	$0000
 	.word	$0000
 	.word	$0000
-	.word	$0537
-	.word	$0579
-	.word	$0599
-	.word	$05C9
-	.word	$05ED
-	.word	$060C
-	.word	$0627
-	.word	$0641
-	.word	$0682
-	.word	$069B
-	.word	$06B6
+	.word	$0538
+	.word	$057A
+	.word	$059A
+	.word	$05CA
+	.word	$05EE
+	.word	$060D
+	.word	$0628
+	.word	$0642
+	.word	$0683
+	.word	$069C
+	.word	$06B7
 	.word	$0000
-	.word	$06DA
-	.word	$0719
+	.word	$06DB
+	.word	$071A
 	.word	$0000
 	.word	$0000
 _map_02_locks:
@@ -1105,22 +1105,22 @@ _map_02_locks:
 	.byte	$0D
 	.byte	$7F
 _map_03_scr_offsets:
-	.word	$0739
-	.word	$0769
-	.word	$0787
-	.word	$07C2
-	.word	$07D1
-	.word	$07F8
-	.word	$0828
-	.word	$085D
-	.word	$0739
-	.word	$088B
-	.word	$0787
-	.word	$08B1
-	.word	$08EA
-	.word	$0943
-	.word	$0984
-	.word	$09BC
+	.word	$073A
+	.word	$076A
+	.word	$0788
+	.word	$07C3
+	.word	$07D2
+	.word	$07F9
+	.word	$0829
+	.word	$085E
+	.word	$073A
+	.word	$088C
+	.word	$0788
+	.word	$08B2
+	.word	$08EB
+	.word	$0944
+	.word	$0985
+	.word	$09BD
 	.word	$0000
 	.word	$0000
 	.word	$0000
@@ -1135,48 +1135,48 @@ _map_03_locks:
 	.byte	$0B
 	.byte	$76
 _map_04_scr_offsets:
-	.word	$09E1
-	.word	$0A13
-	.word	$0A39
-	.word	$0A5D
-	.word	$0A8B
-	.word	$0AA9
-	.word	$0ACB
-	.word	$0AE7
-	.word	$0B13
-	.word	$0B4C
-	.word	$0B6E
-	.word	$0B94
+	.word	$09E2
+	.word	$0A14
+	.word	$0A3A
+	.word	$0A5E
+	.word	$0A8C
+	.word	$0AAA
+	.word	$0ACC
+	.word	$0AE8
+	.word	$0B14
+	.word	$0B4D
+	.word	$0B6F
+	.word	$0B95
 _map_05_scr_offsets:
-	.word	$0BB7
-	.word	$0BE7
-	.word	$0C01
-	.word	$0C24
-	.word	$0C5E
-	.word	$0C91
-	.word	$0CD5
-	.word	$0D07
-	.word	$0D32
-	.word	$0D58
-	.word	$0D87
-	.word	$0DC5
+	.word	$0BB8
+	.word	$0BEB
+	.word	$0C05
+	.word	$0C28
+	.word	$0C62
+	.word	$0C95
+	.word	$0CD9
+	.word	$0D0B
+	.word	$0D36
+	.word	$0D5C
+	.word	$0D8B
+	.word	$0DC9
 _map_06_scr_offsets:
-	.word	$0DE9
-	.word	$0E0E
+	.word	$0DED
+	.word	$0E12
 	.word	$0000
 	.word	$0000
-	.word	$0E46
-	.word	$0E6C
-	.word	$0E94
-	.word	$0EBD
-	.word	$0EE6
-	.word	$0F1E
-	.word	$0F59
-	.word	$0F70
-	.word	$0F8F
-	.word	$0FC0
-	.word	$0FD4
-	.word	$0FFD
+	.word	$0E4A
+	.word	$0E70
+	.word	$0E98
+	.word	$0EC1
+	.word	$0EEA
+	.word	$0F22
+	.word	$0F5D
+	.word	$0F74
+	.word	$0F93
+	.word	$0FC4
+	.word	$0FD8
+	.word	$1001
 _map_06_locks:
 	.byte	$04
 	.byte	$93
@@ -1186,29 +1186,29 @@ _map_06_locks:
 	.byte	$58
 _map_07_scr_offsets:
 	.word	$0000
-	.word	$102F
+	.word	$1033
 	.word	$0000
-	.word	$102F
+	.word	$1033
 	.word	$0000
-	.word	$106D
-	.word	$109B
-	.word	$10BF
-	.word	$10F5
-	.word	$1125
+	.word	$1071
+	.word	$109F
+	.word	$10C3
+	.word	$10F9
+	.word	$1129
 	.word	$0000
-	.word	$114D
+	.word	$1151
 	.word	$0000
-	.word	$1186
-	.word	$11A8
-	.word	$11D9
-	.word	$1212
-	.word	$123B
-	.word	$1263
-	.word	$12A4
-	.word	$12DC
-	.word	$130C
-	.word	$133B
-	.word	$1373
+	.word	$118A
+	.word	$11AC
+	.word	$11DD
+	.word	$1216
+	.word	$123F
+	.word	$1267
+	.word	$12A8
+	.word	$12E0
+	.word	$1310
+	.word	$133F
+	.word	$1377
 _map_07_locks:
 	.byte	$09
 	.byte	$A0
@@ -1219,83 +1219,83 @@ _map_07_locks:
 	.byte	$10
 	.byte	$5F
 _map_08_scr_offsets:
-	.word	$139D
-	.word	$13BF
-	.word	$13DA
-	.word	$13F5
-	.word	$1412
-	.word	$1434
-	.word	$1458
-	.word	$147B
-	.word	$1497
-	.word	$14B8
-	.word	$14D0
-	.word	$14F6
-	.word	$1517
-	.word	$1535
-	.word	$154E
-	.word	$1565
-	.word	$1587
-	.word	$15A2
-	.word	$15C5
-	.word	$15EE
+	.word	$13A1
+	.word	$13C3
+	.word	$13DE
+	.word	$13F9
+	.word	$1416
+	.word	$1438
+	.word	$145C
+	.word	$147F
+	.word	$149B
+	.word	$14BC
+	.word	$14D4
+	.word	$14FA
+	.word	$151B
+	.word	$1539
+	.word	$1552
+	.word	$1569
+	.word	$158B
+	.word	$15A6
+	.word	$15CB
+	.word	$15F4
 _map_09_scr_offsets:
-	.word	$1622
-	.word	$1654
-	.word	$166D
-	.word	$168D
-	.word	$16B9
-	.word	$16D0
-	.word	$16EB
-	.word	$168D
-	.word	$1707
-	.word	$1729
+	.word	$1628
+	.word	$165A
+	.word	$1673
+	.word	$1693
+	.word	$16BF
+	.word	$16D6
+	.word	$16F1
+	.word	$1693
+	.word	$170D
+	.word	$172F
 _map_0a_scr_offsets:
-	.word	$174A
+	.word	$1750
 	.word	$0000
-	.word	$1783
+	.word	$1789
 	.word	$0000
-	.word	$17BC
+	.word	$17C2
 	.word	$0000
-	.word	$17EF
-	.word	$1821
-	.word	$1859
+	.word	$17F5
+	.word	$1827
+	.word	$185F
 	.word	$0000
-	.word	$1880
-	.word	$189E
+	.word	$1886
+	.word	$18A4
 	.word	$0000
-	.word	$18CC
-	.word	$18FA
-	.word	$1919
-	.word	$193A
-	.word	$196E
-	.word	$19A0
-	.word	$19BA
+	.word	$18D2
+	.word	$1900
+	.word	$191F
+	.word	$1940
+	.word	$1974
+	.word	$19A6
+	.word	$19C0
 _map_0b_scr_offsets:
-	.word	$19F0
-	.word	$1A20
-	.word	$1A56
-	.word	$1A56
-	.word	$1A56
-	.word	$1A56
-	.word	$1A62
-	.word	$1A9B
-	.word	$1ABF
-	.word	$1ADB
-	.word	$1AEC
-	.word	$1A56
-	.word	$1AFA
-	.word	$1B20
-	.word	$1B3D
-	.word	$1B5B
-	.word	$1B5B
-	.word	$1B95
-	.word	$1BD1
-	.word	$1C00
-	.word	$1C23
-	.word	$1C48
-	.word	$1C6C
-	.word	$1C8B
+	.word	$19F6
+	.word	$1A26
+	.word	$1A5C
+	.word	$1A5C
+	.word	$1A5C
+	.word	$1A5C
+	.word	$1A68
+	.word	$1AA1
+	.word	$1AC5
+	.word	$1AE1
+	.word	$1AF2
+	.word	$1A5C
+	.word	$1B00
+	.word	$1B26
+	.word	$1B43
+	.word	$1B61
+	.word	$1B61
+	.word	$1B9B
+	.word	$1BD7
+	.word	$1C06
+	.word	$1C29
+	.word	$1C4E
+	.word	$1C72
+	.word	$1C91
 _enems_0_01:
 	.byte	$01
 	.byte	$97
