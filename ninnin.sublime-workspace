@@ -5,7 +5,7 @@
 		[
 			[
 				"decos",
-				"decos_bombs\t(extra_vars.h)"
+				"decos_bombs	(extra_vars.h)"
 			]
 		]
 	},
@@ -13,14 +13,9 @@
 	[
 	],
 	"build_system": "",
-	"build_system_choices":
-	[
-	],
-	"build_varint": "",
 	"command_palette":
 	{
 		"height": 0.0,
-		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -36,10 +31,7 @@
 	},
 	"console":
 	{
-		"height": 0.0,
-		"history":
-		[
-		]
+		"height": 0.0
 	},
 	"distraction_free":
 	{
@@ -50,10 +42,6 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/C/git/nes_work/ninnin"
-	],
 	"file_history":
 	[
 		"/D/git/MK1/src/utils/src/rle53map_sp.bas",
@@ -117,7 +105,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 110.0,
+		"height": 0.0,
 		"where_history":
 		[
 		]
@@ -184,8 +172,6 @@
 	{
 		"height": 0.0
 	},
-	"pinned_build_system": "",
-	"project": "ninnin.sublime-project",
 	"replace":
 	{
 		"height": 76.0
@@ -194,7 +180,6 @@
 	"select_file":
 	{
 		"height": 0.0,
-		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -203,32 +188,15 @@
 	"select_project":
 	{
 		"height": 0.0,
-		"last_filter": "",
 		"selected_items":
 		[
 		],
 		"width": 0.0
-	},
-	"select_symbol":
-	{
-		"height": 0.0,
-		"last_filter": "",
-		"selected_items":
-		[
-		],
-		"width": 0.0
-	},
-	"selected_group": 0,
-	"settings":
-	{
 	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 210.0,
-	"status_bar_visible": true,
-	"template_settings":
-	{
-	}
+	"status_bar_visible": true
 }
