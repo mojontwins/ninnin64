@@ -11,6 +11,7 @@ unsigned char attr_table [64];
 unsigned char kids_mode;
 
 unsigned char c_ppu_mask;
+unsigned char c_chrrom;
 
 unsigned char ppu_mask_xor_bits_fiddle;
 

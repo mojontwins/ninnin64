@@ -3,6 +3,8 @@ echo Exporting chr
 cd ..\gfx
 ..\utils\nescnv tileset-import.png
 copy tileset.chr ..\dev\tileset0.chr
+..\utils\nescnv tileset-import1.png
+copy tileset.chr ..\dev\tileset1.chr
 del tileset.chr
 echo Copying enems
 cd ..\enems
@@ -24,7 +26,6 @@ cd ..\map
 cd ..\dev
 ..\utils\cmpfixed2 ..\map\fixed.map ..\map\pallist.txt assets\screens.h 2
 
-..\utils\fillto.exe tileset1.chr 8192
 copy work\mapchr.bin.2 tileset2.chr 
 ..\utils\fillto.exe tileset3.chr 8192
 

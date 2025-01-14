@@ -5,17 +5,65 @@
 		[
 			[
 				"decos",
-				"decos_bombs	(extra_vars.h)"
+				"decos_bombs\t(extra_vars.h)"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"contents": "Searching 73 files for \"FT_PAL_SUPPORT\"\n\nD:\\git\\ninnin64\\dev\\crt0.s:\n   99  \n  100  .define FT_THREAD      1;undefine if you call sound effects in the same thread as sound update\n  101: .define FT_PAL_SUPPORT\t1   ;undefine to exclude PAL support\n  102  .define FT_NTSC_SUPPORT\t1   ;undefine to exclude NTSC support\n  103  \n\nD:\\git\\ninnin64\\dev\\famitone2.s:\n   14  ; FT_THREAD\t\t\t\t;undefine if you are calling sound effects from the same thread as the sound update call\n   15  \n   16: ; FT_PAL_SUPPORT\t\t\t;undefine to exclude PAL support\n   17  ; FT_NTSC_SUPPORT\t\t\t;undefine to exclude NTSC support\n   18  \n   ..\n   21  ;internal defines\n   22  \n   23: \t.if(FT_PAL_SUPPORT)\n   24  \t.if(FT_NTSC_SUPPORT)\n   25: FT_PITCH_FIX = (FT_PAL_SUPPORT|FT_NTSC_SUPPORT)\t\t\t;add PAL/NTSC pitch correction code only when both modes are enabled\n   26  \t.endif\n   27  \t.else\n   ..\n  232  @pal:\n  233  \t.else\n  234: \t.if(FT_PAL_SUPPORT)\n  235  \tlda #0\n  236  \t.endif\n  ...\n 1226  \n 1227  _FT2NoteTableLSB:\n 1228: \t.if(FT_PAL_SUPPORT)\n 1229  \t.byte $00,$33,$da,$86,$36,$eb,$a5,$62,$23,$e7,$af,$7a,$48,$19,$ec,$c2\n 1230  \t.byte $9a,$75,$52,$30,$11,$f3,$d7,$bc,$a3,$8c,$75,$60,$4c,$3a,$28,$17\n ....\n 1239  \t.endif\n 1240  _FT2NoteTableMSB:\n 1241: \t.if(FT_PAL_SUPPORT)\n 1242  \t.byte $00,$06,$05,$05,$05,$04,$04,$04,$04,$03,$03,$03,$03,$03,$02,$02\n 1243  \t.byte $02,$02,$02,$02,$02,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01,$01\n\n7 matches across 2 files\n\n\nSearching 73 files for \"lava_height_pixels\"\n\nD:\\git\\ninnin64\\dev\\game.s:\n  504  \t.export\t\t_lava_cur_height\n  505  \t.export\t\t_lava_on_screen\n  506: \t.export\t\t_lava_height_pixels\n  507  \t.export\t\t_shl5\n  508  \t.export\t\t_fade_out\n  ...\n 4479  _lava_on_screen:\n 4480  \t.res\t1,$00\n 4481: _lava_height_pixels:\n 4482  \t.res\t2,$00\n 4483  \n ....\n 7534  \tsta     _lava_cur_height\n 7535  ;\n 7536: ; lava_height_pixels = lava_height << 3;\n 7537  ;\n 7538  \tldx     #$00\n 7539  \tlda     _lava_height\n 7540  \tjsr     aslax3\n 7541: \tsta     _lava_height_pixels\n 7542: \tstx     _lava_height_pixels+1\n 7543  ;\n 7544  ; lava_on_screen = 1;\n ....\n 7668  L0FE1:\tsta     _lava_height\n 7669  ;\n 7670: ; lava_height_pixels = 240 << 3;\n 7671  ;\n 7672  \tldx     #$07\n 7673  \tlda     #$80\n 7674: \tsta     _lava_height_pixels\n 7675: \tstx     _lava_height_pixels+1\n 7676  ;\n 7677  ; lava_delay = (level == 6 ? 30 : 40);\n ....\n 15512  L1B54:\tjsr     _scroll\n 15513  ;\n 15514: ; if (pry <= 176 && pry + scrpixoffset > lava_height_pixels - 12) {\n 15515  ;\n 15516  \tlda     _pry\n .....\n 15526  \tpla\n 15527  \tjsr     pushax\n 15528: \tlda     _lava_height_pixels\n 15529: \tldx     _lava_height_pixels+1\n 15530  \tsec\n 15531  \tsbc     #$0C\n\nD:\\git\\ninnin64\\dev\\labels.txt:\n  437  _lava_delay               0005FA  LA    _lava_draw_buff           009450  LA    \n  438  _lava_draw_off            00938C  LA    _lava_height              0005FC  LA    \n  439: _lava_height_pixels       0005FF  LA    _lava_launch              00936F  LA    \n  440  _lava_on_screen           0005FE  LA    _lava_ticker              0005FB  LA    \n  441  _lava_top                 00E804  LA    _level                    000033  LZ    \n  ...\n  984  _lava_draw_off (game.o):\n  985  _lava_height (game.o):\n  986: _lava_height_pixels (game.o):\n  987  _lava_launch (game.o):\n  988  _lava_on_screen (game.o):\n\nD:\\git\\ninnin64\\dev\\my\\custom_vars.h:\n   62  unsigned char lava_cur_height;\n   63  unsigned char lava_on_screen;\n   64: unsigned int lava_height_pixels;\n   65  \n   66  // Multiply by 32 LUT\n\nD:\\git\\ninnin64\\dev\\my\\extra_functions.h:\n  179  \t\t__asm__ (\"sta %v\", lava_cur_height);\n  180  \n  181: \t\tlava_height_pixels = lava_height << 3;\n  182  \t\tlava_on_screen = 1;\n  183  \t\treturn;\n\nD:\\git\\ninnin64\\dev\\my\\extra_routines.h:\n   25  \n   26  \t// Check!\n   27: \tif (pry <= 176 && pry + scrpixoffset > lava_height_pixels - 12) {\n   28  \t\tpstate = EST_NORMAL; phit = 1; pneedsreset = 1;\n   29  \t}\n\nD:\\git\\ninnin64\\dev\\my\\hooks.h:\n   34  \t// Lava\n   35  \tlava_height = (level == 6 ? 240 : 255);\n   36: \tlava_height_pixels = 240 << 3;\n   37  \tlava_delay = (level == 6 ? 30 : 40);\n   38  \n\n17 matches across 6 files\n\n\nSearching 73 files for \"phit\"\n\nD:\\git\\ninnin64\\dev\\definitions.h:\n   58  #define SFX_USE                 3\n   59  #define SFX_TRAMPOLINE          3\n   60: #define SFX_PHIT                4\n   61  #define SFX_DUMMY1              5\n   62  #define SFX_ENHIT               6\n\nD:\\git\\ninnin64\\dev\\engine\\enengine.h:\n  571  \t\t\t\t\t#endif\t\t\t\t\n  572  \t\t\t\t\t{\n  573: \t\t\t\t\t\ttouched = phit = 1;\n  574  \t\t\t\t\t\ten_life [gpit] = 1; enem_hit ();\n  575  \t\t\t\t\t}\n\nD:\\git\\ninnin64\\dev\\engine\\player.h:\n   72  \t#endif\n   73  \n   74: \tsfx_play (SFX_PHIT, 0);\n   75  \t\n   76  \t#ifdef DIE_AND_RESPAWN\n   ..\n  504  \t#endif\n  505  \t#ifdef ENABLE_SILLY_SPRINGS\n  506: \t\tif (cy1 == 1) phit = 1;\n  507  \t#endif\n  508  \n  ...\n  512  \t\n  513  \tif (hitv) {\n  514: \t\tphit = 1;\n  515  \t\t#ifdef FULL_BOUNCE\n  516  \t\t\tpvy = add_sign (-pvy, PLAYER_VX_MAX);\n  ...\n  520  \t\t#endif\t\t\n  521  \t} else if (hith) {\n  522: \t\tphit = 1;\n  523  \t\t#ifdef FULL_BOUNCE\n  524  \t\t\tpvx = add_sign (-pvx, PLAYER_VX_MAX);\n\nD:\\git\\ninnin64\\dev\\engine\\silly_cocos.h:\n   85  \t\t\t\tpstate = EST_PARALYZED;\n   86  \t\t\t\tpctstate = 100;\n   87: \t\t\t} else phit = 1;\n   88  \t\t\t__asm__ (\"ldx %v\", coco_it);\n   89  \t\t\t__asm__ (\"jmp %g\", cocos_do_destroy);\n\nD:\\git\\ninnin64\\dev\\game.c:\n  226  \n  227  \t\tif (paused == 0) {\n  228: \t\t\tphit = 0;\n  229  \n  230  \t\t\t#if defined (ACTIVATE_SCRIPTING) || defined (ACTIVATE_HOOKS)\n  ...\n  367  \t\t// Sync\n  368  \t\tclose_update_cycle ();\n  369: \t\tif (pstate != EST_FLICKERING) if (phit) player_kill ();\n  370  \n  371  \t\t// Change screen\n\nD:\\git\\ninnin64\\dev\\game.s:\n  479  \t.export\t\t_pstate\n  480  \t.export\t\t_pctstate\n  481: \t.export\t\t_phit\n  482  \t.export\t\t_pslippery\n  483  \t.export\t\t_pquicksanded\n  ...\n 4441  _pctstate:\n 4442  \t.res\t1,$00\n 4443: _phit:\n 4444  \t.res\t1,$00\n 4445  _pslippery:\n ....\n 10288  \tsta     _pctstate\n 10289  ;\n 10290: ; } else phit = 1;\n 10291  ;\n 10292  \tjmp     L1382\n 10293  L137C:\tlda     #$01\n 10294: \tsta     _phit\n 10295  ;\n 10296  ; __asm__ (\"ldx %v\", coco_it);\n .....\n 10627  \tsta     _pctstate\n 10628  ;\n 10629: ; sfx_play (SFX_PHIT, 0);\n 10630  ;\n 10631  \tlda     #$04\n .....\n 11911  \tjsr     _map_set\n 11912  ;\n 11913: ; if (cy1 == 1) phit = 1;\n 11914  ;\n 11915  L1600:\tlda     _cy1\n 11916  \tcmp     #$01\n 11917  \tbne     L160E\n 11918: \tsta     _phit\n 11919  ;\n 11920  ; if (hitv) {\n .....\n 11923  \tbeq     L1612\n 11924  ;\n 11925: ; phit = 1;\n 11926  ;\n 11927  \tlda     #$01\n 11928: \tsta     _phit\n 11929  ;\n 11930  ; pvy = add_sign (-pvy, PLAYER_VX_MAX);\n .....\n 11950  \tbeq     L161C\n 11951  ;\n 11952: ; phit = 1;\n 11953  ;\n 11954  \tlda     #$01\n 11955: \tsta     _phit\n 11956  ;\n 11957  ; pvx = add_sign (-pvx, PLAYER_VX_MAX);\n .....\n 14236  \tbeq     L195B\n 14237  ;\n 14238: ; touched = phit = 1;\n 14239  ;\n 14240  \tlda     #$01\n 14241: \tsta     _phit\n 14242  \tsta     _touched\n 14243  ;\n .....\n 15027  \tjne     L1A81\n 15028  ;\n 15029: ; phit = 0;\n 15030  ;\n 15031: \tsta     _phit\n 15032  ;\n 15033  ; rdx = prx + 8; rdy = pry + 8;\n .....\n 15536  \tbcc     L1B55\n 15537  ;\n 15538: ; pstate = EST_NORMAL; phit = 1; pneedsreset = 1;\n 15539  ;\n 15540  \tlda     #$00\n 15541  \tsta     _pstate\n 15542  \tlda     #$01\n 15543: \tsta     _phit\n 15544  \tsta     _pneedsreset\n 15545  ;\n .....\n 15548  L1B55:\tjsr     _close_update_cycle\n 15549  ;\n 15550: ; if (pstate != EST_FLICKERING) if (phit) player_kill ();\n 15551  ;\n 15552  \tlda     _pstate\n 15553  \tcmp     #$02\n 15554  \tbeq     L1B63\n 15555: \tlda     _phit\n 15556  \tbeq     L1B63\n 15557  \tjsr     _player_kill\n\nD:\\git\\ninnin64\\dev\\labels.txt:\n  483  _pfr                      00009B  LZ    _pgotten                  0000A1  LZ    \n  484  _pgtmx                    0000AA  LZ    _pgtmy                    0000AC  LZ    \n  485: _phit                     0005D5  LA    _pj                       00009E  LZ    \n  486  _pjb                      0000A0  LZ    _pkeys                    0000A5  LZ    \n  487  _pkilled                  0000A6  LZ    _player_ax                0000AE  LZ    \n  ...\n 1090  _pgtmx (game.o):\n 1091  _pgtmy (game.o):\n 1092: _phit (game.o):\n 1093  _pj (game.o):\n 1094  _pjb (game.o):\n\nD:\\git\\ninnin64\\dev\\my\\extra_routines.h:\n   26  \t// Check!\n   27  \tif (pry <= 176 && pry + scrpixoffset > lava_height_pixels - 12) {\n   28: \t\tpstate = EST_NORMAL; phit = 1; pneedsreset = 1;\n   29  \t}\n   30  }\n\nD:\\git\\ninnin64\\dev\\ram\\ram_bss.h:\n  100  \n  101  unsigned char pstate, pctstate;\n  102: unsigned char phit;\n  103  \n  104  #ifdef PLAYER_ALTERED_HORIZONTAL_MOVEMENT\n\n32 matches across 9 files\n",
+			"settings":
+			{
+				"buffer_size": 8533,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "dev/my/extra_routines.h",
+			"settings":
+			{
+				"buffer_size": 632,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/my/hooks.h",
+			"settings":
+			{
+				"buffer_size": 8943,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/my/extra_functions.h",
+			"settings":
+			{
+				"buffer_size": 4371,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/crt0.s",
+			"settings":
+			{
+				"buffer_size": 4607,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -31,7 +79,10 @@
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 0.0,
+		"history":
+		[
+		]
 	},
 	"distraction_free":
 	{
@@ -42,8 +93,20 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/D/git/ninnin64",
+		"/D/git/ninnin64/cc",
+		"/D/git/ninnin64/dev",
+		"/D/git/ninnin64/dev/my",
+		"/D/git/ninnin64/fiddle",
+		"/D/git/ninnin64/map"
+	],
 	"file_history":
 	[
+		"/D/git/nes_work/vault/Tutorial_MK1/tut02eng.md",
+		"/D/git/nes_work/vault/standaloner/diario.md",
+		"/D/git/ninnin64/dev/my/extra_functions.h",
 		"/D/git/MK1/src/utils/src/rle53map_sp.bas",
 		"/D/git/MK1/contrib/sami_troid/README.md",
 		"/D/git/MK1/contrib/sami_troid/dev/my/ci/entering_screen.h",
@@ -101,13 +164,14 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 24.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 134.0,
 		"where_history":
 		[
+			"D:\\git\\ninnin64\\dev"
 		]
 	},
 	"find_state":
@@ -115,6 +179,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"phit",
+			"lava_height_pixels",
+			"FT_PAL_SUPPORT",
+			"lava_top"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -132,14 +200,417 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8533,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										194,
+										208
+									],
+									[
+										485,
+										499
+									],
+									[
+										655,
+										669
+									],
+									[
+										723,
+										737
+									],
+									[
+										900,
+										914
+									],
+									[
+										997,
+										1011
+									],
+									[
+										1227,
+										1241
+									],
+									[
+										1585,
+										1603
+									],
+									[
+										1711,
+										1729
+									],
+									[
+										1815,
+										1833
+									],
+									[
+										1953,
+										1971
+									],
+									[
+										1989,
+										2007
+									],
+									[
+										2107,
+										2125
+									],
+									[
+										2206,
+										2224
+									],
+									[
+										2242,
+										2260
+									],
+									[
+										2414,
+										2432
+									],
+									[
+										2535,
+										2553
+									],
+									[
+										2572,
+										2590
+									],
+									[
+										2845,
+										2863
+									],
+									[
+										3177,
+										3195
+									],
+									[
+										3403,
+										3421
+									],
+									[
+										3566,
+										3584
+									],
+									[
+										3766,
+										3784
+									],
+									[
+										3965,
+										3983
+									],
+									[
+										4245,
+										4249
+									],
+									[
+										4449,
+										4453
+									],
+									[
+										4602,
+										4606
+									],
+									[
+										4732,
+										4736
+									],
+									[
+										4809,
+										4813
+									],
+									[
+										4955,
+										4959
+									],
+									[
+										5163,
+										5167
+									],
+									[
+										5335,
+										5339
+									],
+									[
+										5522,
+										5526
+									],
+									[
+										5677,
+										5681
+									],
+									[
+										5792,
+										5796
+									],
+									[
+										5896,
+										5900
+									],
+									[
+										5985,
+										5989
+									],
+									[
+										6107,
+										6111
+									],
+									[
+										6216,
+										6220
+									],
+									[
+										6327,
+										6331
+									],
+									[
+										6414,
+										6418
+									],
+									[
+										6474,
+										6478
+									],
+									[
+										6587,
+										6591
+									],
+									[
+										6647,
+										6651
+									],
+									[
+										6770,
+										6774
+									],
+									[
+										6830,
+										6834
+									],
+									[
+										6921,
+										6925
+									],
+									[
+										6959,
+										6963
+									],
+									[
+										7085,
+										7089
+									],
+									[
+										7209,
+										7213
+									],
+									[
+										7358,
+										7362
+									],
+									[
+										7478,
+										7482
+									],
+									[
+										7753,
+										7757
+									],
+									[
+										8071,
+										8075
+									],
+									[
+										8293,
+										8297
+									],
+									[
+										8443,
+										8447
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								4078,
+								4078
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"incomplete_sync": null,
+							"line_numbers": false,
+							"output_tag": 3,
+							"remote_loading": false,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"synced": false,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3393.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "dev/my/extra_routines.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 632,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								597,
+								597
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "dev/my/hooks.h",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 8943,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1933.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "dev/my/extra_functions.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4371,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4257,
+								4275
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1744.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "dev/crt0.s",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 4607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1141,
+								1141
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Kick Assembler (C64)/Syntaxes/KickAssembler (C64).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 20.0
+		"height": 24.0
 	},
 	"input":
 	{
@@ -154,11 +625,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -168,18 +646,25 @@
 		]
 	},
 	"menu_visible": true,
+	"output.SFTP":
+	{
+		"height": 0.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
 	},
+	"pinned_build_system": "",
+	"project": "ninnin.sublime-project",
 	"replace":
 	{
-		"height": 76.0
+		"height": 44.0
 	},
 	"save_all_on_build": true,
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -188,15 +673,32 @@
 	"select_project":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
 		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
 	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 210.0,
-	"status_bar_visible": true
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }

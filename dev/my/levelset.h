@@ -150,3 +150,8 @@ const unsigned char l_music [] = {
 	3, 4, 6, 5,
 	3, 6, 2, 7
 };
+
+const unsigned char l_chrrom [] = {
+	0, 0, 0, 0, 0, 1, 
+	0, 1, 1, 1, 0, 0
+};

@@ -25,6 +25,8 @@ if (f1 && !paused) {
 
 	// Check!
 	if (pry <= 176 && pry + scrpixoffset > lava_height_pixels - 12) {
-		pstate = EST_NORMAL; phit = 1; pneedsreset = 1;
+		pstate = EST_NORMAL; 
+		//phit = 1; 
+		pneedsreset = 1;
 	}
 }

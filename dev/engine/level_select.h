@@ -37,6 +37,8 @@ c_alt_bg = l_alt_bg [gpit];
 	__asm__ ("sta %v", c_map_w);
 	__asm__ ("lda %v, x", l_ppu_mask);
 	__asm__ ("sta %v", c_ppu_mask);
+	__asm__ ("lda %v, x", l_chrrom);
+	__asm__ ("sta %v", c_chrrom);
 
 #if defined (ENEMS_CAN_DIE) && defined (NEED_BADDIES_COUNT)
 	__asm__ ("lda %v, x", l_baddies_count);
