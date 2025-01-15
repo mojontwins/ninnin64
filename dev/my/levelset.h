@@ -59,7 +59,7 @@ const unsigned char * const l_hotspots [] = {
 
 const unsigned char * const l_pal_bg [] = {
 	mypal_game_bg0, mypal_game_bg1, mypal_game_bg4, mypal_game_bg3, 
-	mypal_game_bg2, mypal_game_bg5, mypal_game_bg1, mypal_game_bg3, 
+	mypal_game_bg2, mypal_game_bg5, mypal_game_bg1, mypal_game_bgA, 
 	mypal_game_bg7, mypal_game_bg8, mypal_game_bg9, mypal_game_bg6
 };
 
@@ -152,6 +152,6 @@ const unsigned char l_music [] = {
 };
 
 const unsigned char l_chrrom [] = {
-	0, 0, 0, 0, 0, 1, 
+	0, 0, 0, 0, 1, 1, 
 	0, 1, 1, 1, 0, 0
 };

@@ -91,7 +91,7 @@ void exiting_screen (void) {
 			// Underwater
 			c_ppu_mask = 0x9e;
 			vertical_engine_type = ENGINE_TYPE_SWIM;
-			pal_bg (mypal_game_bg3);
+			pal_bg (l_pal_bg [level]);
 			c_alt_bg = 42;
 		}
 	} else if (level == 11) {

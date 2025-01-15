@@ -16,7 +16,7 @@ const unsigned char tsmap1 [] = {
 
 // Cave
 const unsigned char tsmap2 [] = {
-	0, 6, 22, 23, 9, 26, 27, 18, 19, 20, 0, 11, 10, 13, 14, 15
+	0, 6, 22, 23, 9, 26, 27, 18, 19, 20, 0, 8, 10, 13, 14, 15
 };
 
 // Underwater
